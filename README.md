@@ -15,7 +15,7 @@ threejs_delaunay プロジェクトは、 [Three.js](https://threejs.org/) 製�
 
 # How to Use
 
-1. Open [this page](https://cubic9com.github.io/threejs_delaunay/) with browser.
+1. Open [this page](https://cubic9com.github.io/threejs_delaunay/) in a browser.
 
 \[日本語\]
 
