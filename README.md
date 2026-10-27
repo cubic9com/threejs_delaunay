@@ -1,7 +1,7 @@
 
 # Overview
 
-The threejs_delaunay project is a gravity simulator of planetary system made with [Three.js](https://threejs.org/) .  
+The threejs_delaunay project is an interactive Delaunay diagram renderer made with [Three.js](https://threejs.org/) .  
 This project is also the Three.js version of [m5core2_delaunay](https://github.com/cubic9com/m5core2_delaunay) .
 
 \[日本語\]
@@ -53,5 +53,5 @@ Copyright (C) 2025, cubic9com All rights reserved.
 
 This project is licensed under the MIT license.
 
-See file `LICENSE` file for details.
+See `LICENSE` file for details.
 
