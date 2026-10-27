@@ -53,5 +53,5 @@ Copyright (C) 2025, cubic9com All rights reserved.
 
 This project is licensed under the MIT license.
 
-See `LICENSE` file for details.
+See the `LICENSE` file for details.
 
