@@ -1,13 +1,15 @@
 
 # Overview
 
-The threejs_delaunay project is an interactive Delaunay diagram renderer made with [Three.js](https://threejs.org/) .  
-This project is also the Three.js version of [m5core2_delaunay](https://github.com/cubic9com/m5core2_delaunay) .
+An interactive Delaunay diagram in the browser, built with [Three.js](https://threejs.org/). Drop in points and watch the triangles knit themselves together in real time — the classic triangulation, alive in a web page.
+
+This project is the Three.js version of [m5core2_delaunay](https://github.com/cubic9com/m5core2_delaunay).
 
 \[日本語\]
 
-threejs_delaunay プロジェクトは、 [Three.js](https://threejs.org/) 製のインタラクティブにドロネー図を描画するソフトウェアです。  
-またこのプロジェクトは [m5core2_delaunay](https://github.com/cubic9com/m5core2_delaunay) のThree.js版です。
+[Three.js](https://threejs.org/)で作られた、ブラウザ上で動作するインタラクティブなドロネー図。点を配置すると、三角形がリアルタイムで次々と組み合わさっていく様子を観察できます。古典的な三角形分割の手法が、ウェブページ上で生き生きと展開されます。
+
+このプロジェクトは [m5core2_delaunay](https://github.com/cubic9com/m5core2_delaunay) のThree.js版です。
 
 # Video
 
