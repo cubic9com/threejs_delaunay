@@ -20,43 +20,28 @@ class Triangle {
      * @returns {boolean} true if the point is inside the circumcircle
      */
     isPointInCircumcircle(p) {
-        // Three points of the triangle
-        const x1 = this.p1.position.x;
-        const y1 = this.p1.position.y;
-        const x2 = this.p2.position.x;
-        const y2 = this.p2.position.y;
-        const x3 = this.p3.position.x;
-        const y3 = this.p3.position.y;
+        // Incircle test in determinant form, using coordinates relative
+        // to the test point. Unlike the circumcenter/circumradius form,
+        // this needs no division and stays numerically accurate because
+        // all values are small differences of coordinates.
+        const ax = this.p1.position.x - p.position.x;
+        const ay = this.p1.position.y - p.position.y;
+        const bx = this.p2.position.x - p.position.x;
+        const by = this.p2.position.y - p.position.y;
+        const cx = this.p3.position.x - p.position.x;
+        const cy = this.p3.position.y - p.position.y;
         
-        // Calculate determinant
-        const a = x1 * (y2 - y3) - y1 * (x2 - x3) + x2 * y3 - x3 * y2;
+        const det = (ax * ax + ay * ay) * (bx * cy - cx * by)
+                  - (bx * bx + by * by) * (ax * cy - cx * ay)
+                  + (cx * cx + cy * cy) * (ax * by - bx * ay);
         
-        // Handle degenerate case (colinear points)
-        if (Math.abs(a) < 1e-6) return false;
+        // Signed area of the triangle (zero for collinear points, which
+        // have no circumcircle)
+        const orient = (this.p2.position.x - this.p1.position.x) * (this.p3.position.y - this.p1.position.y)
+                     - (this.p2.position.y - this.p1.position.y) * (this.p3.position.x - this.p1.position.x);
+        if (orient === 0) return false;
         
-        const b = (x1 * x1 + y1 * y1) * (y3 - y2) + 
-                  (x2 * x2 + y2 * y2) * (y1 - y3) + 
-                  (x3 * x3 + y3 * y3) * (y2 - y1);
-        
-        const c = (x1 * x1 + y1 * y1) * (x2 - x3) + 
-                  (x2 * x2 + y2 * y2) * (x3 - x1) + 
-                  (x3 * x3 + y3 * y3) * (x1 - x2);
-        
-        const d = (x1 * x1 + y1 * y1) * (x3 * y2 - x2 * y3) + 
-                  (x2 * x2 + y2 * y2) * (x1 * y3 - x3 * y1) + 
-                  (x3 * x3 + y3 * y3) * (x2 * y1 - x1 * y2);
-        
-        // Center and squared radius of circumcircle
-        const centerX = -b / (2 * a);
-        const centerY = -c / (2 * a);
-        const radiusSquared = (b * b + c * c - 4 * a * d) / (4 * a * a);
-        
-        // Squared distance between point and center
-        const distSq = (p.position.x - centerX) * (p.position.x - centerX) + 
-                       (p.position.y - centerY) * (p.position.y - centerY);
-        
-        // Inside circle if distance is less than radius
-        return distSq < radiusSquared;
+        return orient > 0 ? det > 0 : det < 0;
     }
 
     /**
